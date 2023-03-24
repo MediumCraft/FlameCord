@@ -1,4 +1,4 @@
-name: Build Negativity
+name: Build FlameCord
 
 # For each push on all branches
 on:

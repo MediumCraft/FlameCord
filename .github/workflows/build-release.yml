@@ -45,7 +45,7 @@ jobs:
       run: |
         git config --global user.email "you@example.com"
         git config --global user.name "Your Name"
-        scripts/build.sh --jar
+        ./flamecord build
       
     # An artifact is generated in a compressed file according to each JDK build version.
     - name: Upload FlameCord
@@ -60,7 +60,7 @@ jobs:
       with: 
         token: ${{ secrets.RELEASE_KEY }}
         files: |
-          FlameCord-Proxy/bootstrap/target/FlameCord.jar
+          FlameCord-Proxy/bootstrap/target/FlameCord-JDK${{ matrix.java }}.jar
         tag_name: commit-${{ github.sha }}
         name: FlameCord Automation Compile ${{ github.sha }}
         body: |
